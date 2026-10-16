@@ -7,15 +7,16 @@ terraform {
 
     }
   }
+  backend "azurerm" {
+    resource_group_name  = "rg-shashi2"
+    storage_account_name = "shashistorage189"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
   features {}
-}
-
-resource "azurerm_resource_group" "rg" {
-  name     = "rg-shashi"
-  location = "centralindia"
 }
 
 resource "azurerm_resource_group" "rg1" {
